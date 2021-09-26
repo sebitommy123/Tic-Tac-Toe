@@ -1,4 +1,4 @@
-import "./Board.css";
+import "../styles/Board.css";
 
 import { Slot, getSVG } from "../utils";
 
