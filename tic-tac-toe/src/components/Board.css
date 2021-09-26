@@ -16,6 +16,19 @@
   left: 656px;
   top: 155px;
 
+  margin: 10px;
+
   background: #626887;
   border-radius: 20px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 110px;
+  font-family: "Arial", Arial, sans-serif;
+}
+
+.square.clickable {
+  cursor: pointer;
 }

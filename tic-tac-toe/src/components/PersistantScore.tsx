@@ -1,6 +1,4 @@
-import React from 'react';
+import React from "react";
 export default function PersistantScore() {
-  return (
-    <div>5 - 5</div>
-  )
+  return (<div>5 - 5</div>);
 }
