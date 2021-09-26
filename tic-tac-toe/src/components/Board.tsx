@@ -1,8 +1,10 @@
 import "./Board.css";
 
+import { Slot, getSVG } from "../utils";
+
 export interface Props {
   onclick: (x: number, y: number) => void;
-  board: number[][];
+  board: Slot[][];
 }
 
 export default function Board(props: Props) {
@@ -13,10 +15,10 @@ export default function Board(props: Props) {
           {row.map((square, x) => (
             <div
               key={x}
-              className={"square" + (square ? " " : " clickable")}
+              className={"square " + (square ? "tile" + square : "clickable")}
               onClick={() => props.onclick(x, y)}
             >
-              {square ? square : ""}
+              {square ? getSVG(square) : ""}
             </div>
           ))}
         </div>
