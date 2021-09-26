@@ -1,0 +1,21 @@
+.board {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.square {
+  width: 140px;
+  height: 140px;
+  left: 656px;
+  top: 155px;
+
+  background: #626887;
+  border-radius: 20px;
+}
