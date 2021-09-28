@@ -1,2 +1,17 @@
-
-
+Component Hierarchy:
+    App
+        1. Tally of games won for each player
+        2. Game (props: board[9], currentPlayer)
+            Current player
+            Board component (props: board[9])
+                Square components (props: board[i] for i=0...8)
+        3. End Screen(props: currentPlayer)
+            Display who won that particular game
+            Play another game
+            Reset scores
+State management:
+    State stored in the App component:
+        score: int[2]
+        CurrentPlayer: Boolean
+    State stored in the Board component:
+        Board: int[3][3]

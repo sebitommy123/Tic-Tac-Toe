@@ -1,0 +1,39 @@
+.board {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.square {
+  width: 140px;
+  height: 140px;
+  margin: 10px;
+
+  background: #626887;
+  border-radius: 20px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 110px;
+  font-weight: bold;
+}
+
+.square.tileX {
+  color: #c08de9;
+}
+
+.square.tileO {
+  color: #517ae4;
+}
+
+.square.clickable {
+  cursor: pointer;
+}
