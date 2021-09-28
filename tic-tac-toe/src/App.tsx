@@ -1,25 +1,47 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import PersistantScore from "./components/PersistantScore";
-import Game from "./components/Game";
-import { Score, Symbol, Winner } from "./utils";
+import { Score, Winner } from "./utils";
+import usePersistentObjectData from "./hooks/usePersistentData";
 import EndScreen from "./components/EndScreen";
+import PersistentScore from "./components/PersistentScore";
+import Game from "./components/Game";
+import "./App.css";
 
-function App() {
-  let [score, setScore]: [Score, any] = useState({ X: 0, O: 0 });
-  let [winner, setWinner]: [Winner, any] = useState(null);
+const App = () => {
+  const [score, setScore] = usePersistentObjectData<Score>(
+    { x: 0, o: 0 },
+    "score"
+  );
+  const [winner, setWinner] = useState<Winner | null>(null);
 
-  function onGameOver(winner: Winner) {
+  const onGameOver = (winner: Winner) => {
+    if (winner !== "DRAW") {
+      const newScore = { ...score } as Score;
+      newScore[winner]++;
+      setScore(newScore);
+    }
     setWinner(winner);
-  }
+  };
+
+  const resetScore = () => {
+    setScore({ x: 0, o: 0 });
+  };
 
   return (
-    <div>
-      <PersistantScore score={score} />
-      {winner ? <EndScreen winner={winner} playAgain={() => {setWinner(null)}} resetScore={() => {}}/> : <Game onGameOver={onGameOver}/>}
-    </div>
+    <>
+      <PersistentScore score={score} />
+      {winner ? (
+        <EndScreen
+          winner={winner}
+          playAgain={() => {
+            setWinner(null);
+          }}
+          resetScore={resetScore}
+        />
+      ) : (
+        <Game onGameOver={onGameOver} />
+      )}
+    </>
   );
-}
+};
 
 export default App;

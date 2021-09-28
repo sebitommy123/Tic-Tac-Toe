@@ -41,4 +41,19 @@ button.playAgain p {
   text-decoration: underline;
   color: white;
   cursor: pointer;
+  border: none;
+}
+
+#endScreenFlex {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#caelinPic {
+  height: 400px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 }
